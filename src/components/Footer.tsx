@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiHome2Line, RiShoppingCartLine, RiUserLine, RiHeartLine, RiSettingsLine, RiShoppingBag2Line, RiGalleryLine } from 'react-icons/ri';
 
 const Footer = ({ children, numberActiveSwiper, countAllSwiper, isFixed = true }: Readonly<{
     children?: React.ReactNode;

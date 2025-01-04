@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 
 export default function useDeviceDetect() {
     const [isMobile, setIsMobile] = React.useState(false);
