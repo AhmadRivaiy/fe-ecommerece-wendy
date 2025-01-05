@@ -1,6 +1,6 @@
 export async function GET(
     request: Request,
-    { params }: any
+    { params }: { params: { slug: string } }
 ) {
     const _params = await params;
     const _data = [

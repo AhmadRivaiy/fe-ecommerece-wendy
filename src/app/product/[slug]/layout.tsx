@@ -1,6 +1,5 @@
 export default function ProductLayout({
     children,
-    params,
 }: {
     children: React.ReactNode,
     params: Promise<{ slug: string }>
