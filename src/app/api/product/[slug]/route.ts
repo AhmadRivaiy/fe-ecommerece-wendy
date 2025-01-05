@@ -26,6 +26,11 @@ export async function GET(
                     size: "L",
                     quantity: 30,
                 },
+                {
+                    id: 4,
+                    size: "XL",
+                    quantity: 0,
+                },
             ],
             list_images: [
                 "https://picsum.photos/id/1/1280/1920",
@@ -37,6 +42,28 @@ export async function GET(
             name: "Lily",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+                {
+                    id: 4,
+                    size: "XL",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/2/1280/1920",
             ],
@@ -47,6 +74,23 @@ export async function GET(
             name: "Sunflower",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/3/1280/1920",
             ],
@@ -57,6 +101,23 @@ export async function GET(
             name: "Tulip",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/4/1280/1920",
             ],
@@ -67,6 +128,23 @@ export async function GET(
             name: "Daisy",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/5/1280/1920",
             ],
@@ -77,6 +155,23 @@ export async function GET(
             name: "Orchid",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/6/1280/1920",
             ],
@@ -87,6 +182,23 @@ export async function GET(
             name: "Dahlia",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/7/1280/1920",
             ],
@@ -97,6 +209,23 @@ export async function GET(
             name: "Peony",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/8/1280/1920",
             ],
@@ -107,6 +236,23 @@ export async function GET(
             name: "Hydrangea",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/9/1280/1920",
             ],
@@ -117,6 +263,23 @@ export async function GET(
             name: "Iris",
             category: "Flower",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/10/1280/1920",
             ],
@@ -127,6 +290,23 @@ export async function GET(
             name: "Peony",
             category: "Flower 3",
             price: 25000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             weight: 500,
             dimension: "10x10x10",
             list_images: [

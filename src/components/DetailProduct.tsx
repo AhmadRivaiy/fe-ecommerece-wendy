@@ -39,8 +39,8 @@ export default function ProductDetailComponent({ product }: { product: FlowerLin
                             product.stock.map((stock) => (
                                 <div
                                     key={stock.id}
-                                    className={`border border-gray-300 p-3 rounded-md cursor-pointer hover:bg-gray-100 ${selectedStock?.id === stock.id ? 'bg-gray-400' : ''}`}
-                                    onClick={() => setSelectedStock(selectedStock?.id === stock?.id ? null : stock)}
+                                    className={`border border-gray-300 p-3 rounded-md cursor-pointer hover:bg-gray-100 ${selectedStock?.id === stock.id ? 'bg-gray-400' : ''} ${stock.quantity === 0 ? 'bg-red-300' : ''}`}
+                                    onClick={() => setSelectedStock(stock.quantity === 0 ? null : (selectedStock?.id === stock?.id ? null : stock))}
                                 >
                                     <p className="text-center min-w-8">{stock.size}</p>
                                 </div>

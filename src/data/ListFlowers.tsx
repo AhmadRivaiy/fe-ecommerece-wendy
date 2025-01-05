@@ -1,4 +1,4 @@
-const flowerLinkImages: FlowerLinkImageType[] = [
+const flowerLinkImages: FlowerLinkImageListType[] = [
     {
         name: "Rose",
         category: "Flower",

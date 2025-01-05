@@ -11,7 +11,7 @@ interface Params {
     slug: string;
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
     const { slug } = await params;
     const product: FlowerLinkImageType = await getProduct(slug);
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     };
 }
 
-export default async function ProductDetailPage({ params }: { params: Params }) {
+export default async function ProductDetailPage({ params }: { params: Promise<Params> }) {
     const { slug } = await params;
     const product: FlowerLinkImageType = await getProduct(slug);
 

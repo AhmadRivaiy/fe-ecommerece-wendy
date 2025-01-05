@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 const queryClient = new QueryClient();
 
-export default function ListProduct({ initialData }: { initialData: FlowerLinkImageType[] }) {
+export default function ListProduct({ initialData }: { initialData: FlowerLinkImageListType[] }) {
     return (
         <>
             <QueryClientProvider client={queryClient}>
@@ -23,7 +23,7 @@ export default function ListProduct({ initialData }: { initialData: FlowerLinkIm
     );
 }
 
-function UserList({ initialData }: { initialData: FlowerLinkImageType[] }) {
+function UserList({ initialData }: { initialData: FlowerLinkImageListType[] }) {
     const { data, isPending } = useQuery({
         queryKey: ['products'],
         initialData,
