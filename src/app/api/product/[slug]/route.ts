@@ -1,8 +1,9 @@
 export async function GET(
     request: Request,
-    { params }: { params: { slug: string } }
+    context: { params: Promise<{ slug: string }> }
 ) {
-    const _params = await params;
+    const _params = await context.params;
+
     const _data = [
         {
             name: "Rose",
@@ -145,7 +146,7 @@ export async function GET(
         return products;
     }
 
-    const product = searchProduct(_params.slug);
+    const product = searchProduct(_params?.slug);
 
     return Response.json({
         status: true,
