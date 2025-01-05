@@ -26,3 +26,8 @@ export const gramsToSomeUnit = (grams: number, unit: 'gram' | 'kilogram' | 'mill
 
     return formatter.format(convertedValue).replace(unit + 's', '').trim();
 }
+
+// to uppercaser
+export const toUpperCase = (str: string): string => {
+    return str.toUpperCase();
+}

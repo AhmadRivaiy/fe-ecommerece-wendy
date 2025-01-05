@@ -1,4 +1,10 @@
 declare global {
+    interface StockProduct {
+        id: number;
+        size: string;
+        quantity: number;
+    }
+
     interface FlowerLinkImageType {
         id?: number;
         name: string;
@@ -10,7 +16,9 @@ declare global {
         inStock?: boolean;
         weight?: number;
         dimension?: string;
+        slug?: string;
         list_images?: string[];
+        stock: StockProduct[];
     }
 
     interface ListMenuLeft {

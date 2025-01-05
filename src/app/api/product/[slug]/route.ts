@@ -1,13 +1,31 @@
-export async function GET() {
-  return Response.json({
-    status: true,
-    message: "Success",
-    data: [
+export async function GET(
+    request: Request,
+    { params }: any
+) {
+    const _params = await params;
+    const _data = [
         {
             name: "Rose",
             category: "Flower",
             price: 25000,
             priceAfterDiscount: 20000,
+            stock: [
+                {
+                    id: 1,
+                    size: "S",
+                    quantity: 10,
+                },
+                {
+                    id: 2,
+                    size: "M",
+                    quantity: 20,
+                },
+                {
+                    id: 3,
+                    size: "L",
+                    quantity: 30,
+                },
+            ],
             list_images: [
                 "https://picsum.photos/id/1/1280/1920",
             ],
@@ -120,6 +138,18 @@ export async function GET() {
             imageUrl: "https://picsum.photos/id/18/1280/1920",
             slug: "peony-flower-3",
         },
-    ]
-});
+    ];
+    
+    function searchProduct(slug: string) {
+        const products = _data.find((item) => item.slug === slug) ?? null;
+        return products;
+    }
+
+    const product = searchProduct(_params.slug);
+
+    return Response.json({
+        status: true,
+        message: "Success",
+        data: product,
+    });
 }

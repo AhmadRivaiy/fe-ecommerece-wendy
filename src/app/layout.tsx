@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import Navbar from "@/components/Navbar";
+
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
   subsets: ["latin"],
@@ -22,9 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppinsSans.variable} antialiased`}
+        className={`${poppinsSans.variable} font-[family-name:var(--font-poppins-sans)] antialiased`}
       >
-        {children}
+        <Navbar />
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );

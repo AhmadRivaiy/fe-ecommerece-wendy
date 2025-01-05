@@ -8,6 +8,7 @@ import {
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const queryClient = new QueryClient();
 
@@ -49,17 +50,21 @@ function UserList({ initialData }: { initialData: FlowerLinkImageType[] }) {
                                             height={200}
                                             className="w-full h-96 transition-transform duration-300 ease-in-out transform hover:scale-110"
                                         />
-                                        <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                            <p className="text-white text-lg font-semibold transition-opacity duration-300">
-                                                {image.name}
-                                            </p>
-                                        </div>
+                                        <Link href={`/product/${image.slug}`}>
+                                            <div
+                                                className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                                            >
+                                                <p className="text-white text-lg font-semibold transition-opacity duration-300">
+                                                    {image.name}
+                                                </p>
+                                            </div>
+                                        </Link>
                                     </div>
                                     <div className="mt-2">
                                         <p className="text-lg font-normal text-center">{image.name}</p>
                                         <span className="flex justify-center gap-3">
-                                            {image.priceAfterDiscount ? <p className="text-sm text-gray-500 text-center line-through">{formatCurrency(image.priceAfterDiscount, 'IDR')}</p> : <></>}
-                                            <p className="text-sm text-gray-500 font-semibold text-center">{formatCurrency(image.price, 'IDR')}</p>
+                                            {image.priceAfterDiscount ? <p className="text-sm text-gray-500 text-center line-through">{formatCurrency(image.price, 'IDR')}</p> : <></>}
+                                            <p className="text-sm text-gray-500 font-semibold text-center">{formatCurrency(image.priceAfterDiscount ? image.priceAfterDiscount : image.price, 'IDR')}</p>
                                         </span>
                                     </div>
                                 </div>
