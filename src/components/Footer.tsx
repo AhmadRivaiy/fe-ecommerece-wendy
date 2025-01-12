@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = ({ children, numberActiveSwiper, countAllSwiper, isFixed = true }: Readonly<{
+const Footer = ({ children, isFixed = true }: Readonly<{
     children?: React.ReactNode;
     numberActiveSwiper?: number | string;
     countAllSwiper?: number | string;

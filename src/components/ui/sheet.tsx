@@ -58,7 +58,7 @@ const SheetContent = React.forwardRef<
   SheetContentProps
 >(({ side = "right", className, children, ...props }, ref) => (
   <SheetPortal>
-  <SheetTitle>Menu</SheetTitle> // Add a Sheet title
+  <SheetTitle>Menu</SheetTitle>
     <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}

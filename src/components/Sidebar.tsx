@@ -24,7 +24,7 @@ export function AppSidebar({ className }: { className?: string }) {
     const isMobile = useIsMobile();
 
     return (
-        <Sidebar className={`${isMobile ? '' : 'hidden'}`}>
+        <Sidebar className={`${isMobile ? '' : 'hidden'} ${className}`}>
             <SidebarHeader />
             <SidebarContent className="pt-14">
                 <SidebarGroup>

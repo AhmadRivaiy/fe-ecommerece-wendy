@@ -23,7 +23,7 @@ export default function ProductDetailPage() {
     const searchParams = useSearchParams();
     const route = useRouter();
 
-    const { user, login, logout } = useAuthApp();
+    const { user } = useAuthApp();
     const { cart, updateCart, deleteProductCart } = useCart();
     const [isLogined, setIsLogined] = useState<User | null>(null);
     const [dataCart, setDataCart] = useState<CartItem[]>([]);
