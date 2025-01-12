@@ -6,7 +6,7 @@ declare global {
     }
 
     interface FlowerLinkImageListType {
-        id?: number;
+        id: string;
         name: string;
         imageUrl: string;
         category?: string | 'Flower';
@@ -21,7 +21,7 @@ declare global {
     }
 
     interface FlowerLinkImageType {
-        id?: number;
+        id: string;
         name: string;
         imageUrl: string;
         category?: string | 'Flower';
@@ -39,6 +39,39 @@ declare global {
     interface ListMenuLeft {
         name: string;
         url: string;
+    }
+
+    type CartItemType = {
+        id: string;
+        size: string;
+        quantity?: number;
+    };
+    
+    type CartContextType = {
+        cart: CartItemType[];
+        addProduct: (item: CartItemType) => void;
+        updateCart: (item: CartItemType) => void;
+        deleteProductCart: (item: CartItemType) => void;
+    };
+
+    interface CartItem {
+        id: string;
+        quantity: number;
+        size?: string;
+        addedAt?: string;
+        sub_total: number;
+        detail: FlowerLinkImageType
+    }
+    
+    interface User {
+      name: string;
+      email: string;
+    }
+    
+    interface AuthContextType {
+      user: User | null;
+      login: (userData: User) => void;
+      logout: () => void;
     }
 }
 

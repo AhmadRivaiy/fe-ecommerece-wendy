@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 interface CounterProps {
     onChange: (count: number) => void;
+    countNow?: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ onChange }) => {
-    const [count, setCount] = useState(1);
+const Counter: React.FC<CounterProps> = ({ onChange, countNow }) => {
+    const [count, setCount] = useState(countNow ?? 1);
 
     const increment = () => {
         const newCount = count + 1;

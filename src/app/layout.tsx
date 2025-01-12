@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "@/context/AuthContext";
+import { AppSidebar } from "@/components/Sidebar"
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
   subsets: ["latin"],
   weight: "500",
-  
+
 });
 
 export const metadata: Metadata = {
@@ -24,12 +29,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppinsSans.variable} font-[family-name:var(--font-poppins-sans)] antialiased`}
+        className={`${poppinsSans.variable} uppercase bg-slate-50 font-[family-name:var(--font-poppins-sans)] antialiased min-h-screen`}
       >
-        <Navbar />
-        <main className="pt-20">
-          {children}
-        </main>
+        <AuthProvider>
+          <CartProvider>
+            <SidebarProvider>
+              <Navbar>
+                <SidebarTrigger />
+              </Navbar>
+              <AppSidebar />
+              <main className="pt-20 w-full h-full">
+                {children}
+              </main>
+            </SidebarProvider>
+            <Footer isFixed={false} />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

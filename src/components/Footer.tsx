@@ -8,27 +8,33 @@ const Footer = ({ children, numberActiveSwiper, countAllSwiper, isFixed = true }
 }>) => {
     return (
         <footer
-            className='flex flex-row justify-between'
+            className='flex justify-center'
             style={{
                 position: isFixed ? 'fixed' : 'relative',
                 bottom: 0,
                 left: 0,
                 right: 0,
-                padding: '0.5rem',
-                margin: '0.6rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
             }}
         >
-            <div>
-                <p className='text-sm'>Made with ❤️<br/>by{' '} Amed Group</p>
-                <p>{numberActiveSwiper ?? '-'} / {countAllSwiper ?? '-'}</p>
-            </div>
-            {children}
-            <div>
-                <p>Popular Items</p>
-            </div>
+            <section
+                className='container'
+                style={{
+
+                    padding: '0.5rem',
+                    margin: '0.6rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}
+            >
+                <div>
+                    <p className='text-sm'>Made with ❤️<br />by{' '} Amed Group</p>
+                </div>
+                {children}
+                <div>
+                    <p>Popular Items</p>
+                </div>
+            </section>
         </footer>
     );
 };
