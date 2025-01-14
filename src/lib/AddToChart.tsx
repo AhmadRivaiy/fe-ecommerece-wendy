@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const addToCart = (item: CartItem) => {
     const cart = JSON.parse(localStorage.getItem(process.env.NAME_CART || 'ws_cart') || '[]') as CartItem[];
-    const existingItemIndex = cart.findIndex(cartItem => cartItem.detail.id === item.detail.id && cartItem.size === item.size);
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.detail.id === item.detail.id && cartItem.size === item.size && cartItem.cutting === item.cutting);
     const _id = uuidv4();
     if (existingItemIndex > -1) {
         cart[existingItemIndex].quantity += item.quantity;
@@ -21,7 +21,7 @@ export const addToCart = (item: CartItem) => {
 
 export const updateProductCart = (item: CartItem) => {
     const cart = JSON.parse(localStorage.getItem(process.env.NAME_CART || 'ws_cart') || '[]') as CartItem[];
-    const existingItemIndex = cart.findIndex(cartItem => cartItem.detail.id === item.detail.id && cartItem.size === item.size);
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.detail.id === item.detail.id && cartItem.size === item.size && cartItem.cutting === item.cutting);
     if (existingItemIndex > -1) {
         cart[existingItemIndex].quantity = item.quantity;
         cart[existingItemIndex].sub_total = item.sub_total;
@@ -43,7 +43,7 @@ export const getCount = (): number => {
 
 export const getTotalPrice = (): number => {
     let _total = 0;
-    const _cart = JSON.parse(localStorage.getItem(process.env.NAME_CART || 'ws_cart') || '[]') as CartItem[];
+    const _cart = JSON.parse(localStorage?.getItem(process.env.NAME_CART || 'ws_cart') || '[]') as CartItem[];
 
     _cart.map((x) => {
         _total += x.sub_total

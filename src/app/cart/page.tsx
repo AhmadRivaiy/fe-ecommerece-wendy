@@ -28,6 +28,7 @@ export default function ProductDetailPage() {
     const [isLogined, setIsLogined] = useState<User | null>(null);
     const [dataCart, setDataCart] = useState<CartItem[]>([]);
     const [stepNow, setStep] = useState<number>(1);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
 
     useEffect(() => {
         setIsLogined(user);
@@ -42,6 +43,7 @@ export default function ProductDetailPage() {
 
     useEffect(() => {
         setDataCart(getCart());
+        setTotalPrice(getTotalPrice())
     }, [cart]);
 
     useEffect(() => {
@@ -55,6 +57,7 @@ export default function ProductDetailPage() {
             quantity: c,
             size: data.size,
             detail: product,
+            cutting: data.cutting,
             sub_total: product.priceAfterDiscount ? product.priceAfterDiscount * c : (product.price || 0) * c
         });
         updateCart({ id: _id ?? '-', quantity: c, size: data.size ?? '-' });
@@ -114,7 +117,7 @@ export default function ProductDetailPage() {
                                 </div>
                                 <div className="flex flex-row justify-between">
                                     <div>SUBTOTAL</div>
-                                    <div>{formatCurrency(getTotalPrice(), 'IDR')}</div>
+                                    <div>{formatCurrency(totalPrice, 'IDR')}</div>
                                 </div>
                                 <div className="flex flex-row justify-between">
                                     <div>DISCOUNT</div>
@@ -128,7 +131,7 @@ export default function ProductDetailPage() {
                                 <hr/>
                                 <div className="flex flex-row justify-between">
                                     <div>TOTAL</div>
-                                    <div>{formatCurrency(getTotalPrice(), 'IDR')}</div>
+                                    <div>{formatCurrency(totalPrice, 'IDR')}</div>
                                 </div>
                             </CardContent>
                             <CardFooter className="flex flex-col gap-5">

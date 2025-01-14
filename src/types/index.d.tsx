@@ -58,6 +58,7 @@ declare global {
         id: string;
         quantity: number;
         size?: string;
+        cutting: string;
         addedAt?: string;
         sub_total: number;
         detail: FlowerLinkImageType

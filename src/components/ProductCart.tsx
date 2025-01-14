@@ -37,7 +37,7 @@ export default function ProductCart({
                                                 <Image src={x.detail.imageUrl} alt={x.detail.name} width={50} height={50} />
                                             </div>
                                         </div>
-                                        {x.detail.name} - {x.size}
+                                        {x.detail.name} - {x.cutting} - {x.size}
                                     </Link>
                                 </td>
                                 <td>{formatCurrency(x.detail.priceAfterDiscount ?? x.detail.price, 'IDR')}</td>
