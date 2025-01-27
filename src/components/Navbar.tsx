@@ -14,6 +14,7 @@ import {
 import {
     Dialog,
     DialogContent,
+    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -127,16 +128,19 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                         <DialogTrigger>
                             <Search />
                         </DialogTrigger>
-                        <DialogContent>
+                        <DialogContent aria-describedby="modal-content">
                             <DialogHeader>
                                 <DialogTitle></DialogTitle>
+                                <DialogDescription>
+                                    Search By Name Product
+                                </DialogDescription>
                                 <form className="relative w-full" onSubmit={handleSubmit}>
                                     <input
                                         ref={inputRef}
                                         type="text"
                                         name="search"
                                         placeholder='Search...'
-                                        className="w-full pl-4 pr-10 py-2 border rounded-md no-focus bg-white"
+                                        className="w-full pl-2 py-2 border rounded-md no-focus bg-white"
                                     />
                                     <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" />
                                 </form>

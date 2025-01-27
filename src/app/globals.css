@@ -104,3 +104,15 @@ body {
     var(--primary) 20px
   );
 }
+
+.billing-shipping {
+  input {
+   background-color: #fff; 
+  }
+  textarea {
+    background-color: #fff; 
+  }
+  button {
+    background-color: #fff; 
+  }
+}

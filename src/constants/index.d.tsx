@@ -16,7 +16,9 @@ const listMenu: ListMenuLeft[] = [
     }
 ];
 
-export default {
+const moduleExports = {
     labels,
     listMenu
 };
+
+export default moduleExports;

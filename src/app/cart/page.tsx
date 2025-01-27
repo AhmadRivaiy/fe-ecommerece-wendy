@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductCart from "@/components/ProductCart";
 import { useRouter } from "next/navigation";
+import AddressCart from "@/components/AddressCart";
 
 export default function ProductDetailPage() {
     const searchParams = useSearchParams();
@@ -39,7 +40,7 @@ export default function ProductDetailPage() {
         } else {
             setDataCart(getCart());
         }
-    }, [user]);
+    }, [user, isLogined]);
 
     useEffect(() => {
         setDataCart(getCart());
@@ -69,7 +70,9 @@ export default function ProductDetailPage() {
     }
 
     const nextStep = () => {
-        route.push('/cart?step=' + (stepNow + 1));
+        if(stepNow < 4){
+            route.push('/cart?step=' + (stepNow + 1));
+        }
     }
 
     const previousStep = () => {
@@ -80,9 +83,11 @@ export default function ProductDetailPage() {
         if(step === 1){
             return <ProductCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} />
         } else if (step === 2){
-            return <div>Address</div>
+            return <AddressCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} />
         } else if (step === 3){
             return <div>Payment</div>
+        } else if (step === 4){
+            return <div>Complete</div>
         }
 
         return <div>Cart</div>;
@@ -94,18 +99,18 @@ export default function ProductDetailPage() {
                 <div className="w-full flex justify-center">
                     <ul className="steps steps-horizontal">
                         <li className="step step-info">Cart</li>
-                        <li className={`step ${stepNow === 2 ? 'step-info' : ''}`}>Address</li>
-                        <li className="step">Details</li>
-                        <li className="step">Order Complete</li>
+                        <li className={`step ${stepNow === 2 || stepNow === 3 || stepNow === 4 ? 'step-info' : ''}`}>Address</li>
+                        <li className={`step ${stepNow === 3 || stepNow === 4 ? 'step-info' : ''}`}>Details</li>
+                        <li className={`step ${stepNow === 4 ? 'step-info' : ''}`}>Order Complete</li>
                     </ul>
                 </div>
-                <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 md:gap-10 gap-0">
                     <div className="overflow-x-auto md:col-span-2 col-span-1">
                         {
                             renderCartComponent(stepNow)
                         }
                     </div>
-                    <div className="flex w-full justify-center items-center md:col-span-1 col-span-2">
+                    <div className="flex w-full justify-center items-start md:col-span-1 col-span-2">
                         <Card className="w-full order-last">
                             <CardHeader>
                                 <CardTitle>CART TOTALS</CardTitle>
@@ -139,7 +144,7 @@ export default function ProductDetailPage() {
                                     <Input placeholder="COUPON"/>
                                     <Button className="w-full" variant={'secondary'}>APPLY</Button>
                                 </div>
-                                <Button className="w-full uppercase" onClick={nextStep}>Checkout</Button>
+                                <Button className="w-full uppercase" onClick={nextStep}>{stepNow === 3 ? 'Procced Payment' : 'Next'}</Button>
                                 {
                                     stepNow > 1 && (<Button className="w-full uppercase" onClick={previousStep}>BACK</Button>)
                                 }

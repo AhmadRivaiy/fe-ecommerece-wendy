@@ -74,6 +74,20 @@ declare global {
       login: (userData: User) => void;
       logout: () => void;
     }
+
+    interface AddressCart {
+        [key: string]: string,
+        firstname: string;
+        lastname: string;
+        street_address: string;
+        state: string;
+        city: string;
+        subcity: string;
+        postcode: string;
+        phone_number: string;
+        email: string;
+        notes: string;
+    }
 }
 
 export { };
