@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import ProductCart from "@/components/ProductCart";
 import { useRouter } from "next/navigation";
 import AddressCart from "@/components/AddressCart";
+import PaymentProduct from "@/components/PaymentProduct";
 
 export default function ProductDetailPage() {
     const searchParams = useSearchParams();
@@ -36,10 +37,11 @@ export default function ProductDetailPage() {
         if (isLogined) {
 
             // Ambil Dari Server
-            setDataCart([]);
+            // setDataCart([]);
         } else {
-            setDataCart(getCart());
+            // setDataCart(getCart());
         }
+        setDataCart(getCart());
     }, [user, isLogined]);
 
     useEffect(() => {
@@ -81,11 +83,11 @@ export default function ProductDetailPage() {
 
     const renderCartComponent = (step: number) => {
         if(step === 1){
-            return <ProductCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} />
+            return <ProductCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} nextStep={nextStep}/>
         } else if (step === 2){
-            return <AddressCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} />
+            return <AddressCart dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} nextStep={nextStep}/>
         } else if (step === 3){
-            return <div>Payment</div>
+            return <PaymentProduct dataCart={dataCart} setCount={setCount} removeProductCart={removeProductCart} nextStep={nextStep}/>
         } else if (step === 4){
             return <div>Complete</div>
         }
@@ -144,10 +146,6 @@ export default function ProductDetailPage() {
                                     <Input placeholder="COUPON"/>
                                     <Button className="w-full" variant={'secondary'}>APPLY</Button>
                                 </div>
-                                <Button className="w-full uppercase" onClick={nextStep}>{stepNow === 3 ? 'Procced Payment' : 'Next'}</Button>
-                                {
-                                    stepNow > 1 && (<Button className="w-full uppercase" onClick={previousStep}>BACK</Button>)
-                                }
                             </CardFooter>
                         </Card>
                     </div>
